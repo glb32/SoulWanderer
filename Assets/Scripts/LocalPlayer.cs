@@ -12,7 +12,7 @@ public class LocalPlayer : MonoBehaviour
     public float checkRate = 1.0f; // how often in seconds we check to see if we are grounded
     public bool grounded = false;// is grounded or not
     public LayerMask groundLayer;//the layer on which we can be grounded
-    public static float CountdownTime = 3.5f;
+    public static float CountdownTime = 5.0f;
     public float TimerTime = CountdownTime;
     public Transform prefab = null;
     public float movementSpeed = 3f;
@@ -22,6 +22,8 @@ public class LocalPlayer : MonoBehaviour
     public GUIStyle LabelStyle;
     private float speedMultiplier = 1.0f;
     public float slowFactor = 0.5f;
+    public float coinTime = 10.0f;
+   
     public bool playerWon = false;
     public Transform CharonPrefab;
 
@@ -112,6 +114,10 @@ public class LocalPlayer : MonoBehaviour
 	{
         if (isAlive)
         {
+            if (key == "Coin")
+            {
+                TimerTime = coinTime;
+            }
             inventory[key] += 1;
             Debug.Log("Currently have" + inventory["Soul Ash"] + "Soul Ash, " + "and " + inventory["Coin"] + " Coin(s)");
         }
