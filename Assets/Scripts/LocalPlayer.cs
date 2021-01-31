@@ -7,7 +7,7 @@ public class LocalPlayer : MonoBehaviour
 {
 
     private bool isAlive = true;
-    private int soulAshCollected = 0;
+    public IDictionary<string, int> inventory = new Dictionary<string, int> { {"Soul Ash", 0},{"Coin",0 } };
     public float groundedHeight = 1f; // the height above ground to determine if the player is grounded
     public float checkRate = 1.0f; // how often in seconds we check to see if we are grounded
     public bool grounded = false;// is grounded or not
@@ -20,6 +20,10 @@ public class LocalPlayer : MonoBehaviour
     public Transform RespawnLocation = null;
     private bool soulAshCreated = false;
     public GUIStyle LabelStyle;
+
+
+
+
 
     private void Awake()
     {
@@ -34,6 +38,7 @@ public class LocalPlayer : MonoBehaviour
     void Start()
 
     {
+    
         InvokeRepeating("Groundcheck", 0, checkRate);
     }
     void Groundcheck()
@@ -95,6 +100,14 @@ public class LocalPlayer : MonoBehaviour
 
         }
     }
+
+     
+    void AddToInventory(string key)
+	{
+        inventory[key] += 1;
+        Debug.Log("Currently have" + inventory["Soul Ash"] + "Soul Ash, " + inventory["Coin"] + "and {1} Coin(s)");
+
+	}
 
     void FixedUpdate()
 	{
