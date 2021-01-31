@@ -8,10 +8,7 @@ public class River : MonoBehaviour
     public Rigidbody rb;
     public bool isInCurrent = false;
 
-    void Start()
-    {
-        rb = GetComponent<Rigidbody>();
-    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
