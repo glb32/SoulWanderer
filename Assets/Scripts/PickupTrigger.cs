@@ -5,6 +5,8 @@ using UnityEngine;
 public class PickupTrigger : MonoBehaviour
 {
     public string objectTag;
+    public AudioSource pickupSound = null;
+
     public void OnTriggerEnter(Collider other)
     {
 		Debug.Log("Touched Coin!");
@@ -13,6 +15,11 @@ public class PickupTrigger : MonoBehaviour
             
             LocalPlayer inventory = other.gameObject.GetComponent("LocalPlayer") as LocalPlayer;
             inventory.AddToInventory(objectTag);
+            if (pickupSound != null)
+            {
+                pickupSound.Play();
+            }
+
             Destroy(gameObject);
         }
     }

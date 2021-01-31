@@ -6,6 +6,7 @@ public class TentacleTrigger : MonoBehaviour
 {
 
     public TentacleMovement tentacle;
+    public AudioSource agroSound = null;
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +24,12 @@ public class TentacleTrigger : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            tentacle.StartChase(other.transform);            
+            tentacle.StartChase(other.transform);
+
+            if (agroSound != null)
+            {
+                agroSound.Play();
+            }
         }
     }
     private void OnTriggerExit(Collider other)
@@ -31,6 +37,13 @@ public class TentacleTrigger : MonoBehaviour
         if (other.tag == "Player")
         {
             tentacle.StopChase();
+
+
+            if (agroSound != null)
+            {
+                if(agroSound.isPlaying)
+                    agroSound.Stop();
+            }
         }
     }
 }
