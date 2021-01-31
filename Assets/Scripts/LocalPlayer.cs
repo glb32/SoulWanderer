@@ -109,6 +109,14 @@ public class LocalPlayer : MonoBehaviour
             Debug.Log("Currently have" + inventory["Soul Ash"] + "Soul Ash, " + "and " + inventory["Coin"] + " Coin(s)");
         }
 	}
+   public void SlowDown(float amount)
+	{
+        movementSpeed -= amount;
+	}
+   public void ResetSpeed()
+	{
+        movementSpeed = 3f;
+	}
 
     private void Update()
     {
