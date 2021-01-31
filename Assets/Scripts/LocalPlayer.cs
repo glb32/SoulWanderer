@@ -30,9 +30,8 @@ public class LocalPlayer : MonoBehaviour
         if (RespawnLocation == null)
         {
             RespawnLocation = GameObject.FindWithTag("Respawn").transform;
-
-
         }
+
         rigidbody2d = transform.GetComponent<Rigidbody2D>();
     }
     void Start()

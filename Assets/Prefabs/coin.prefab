@@ -63,8 +63,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18bd7e2408d9f754db2d45baf44d3a62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pulseSpeed: 2
-  MaxScale: 0.2
+  pulseSpeed: 0.5
+  MaxScale: 0.1
 --- !u!1 &1880235364878098412
 GameObject:
   m_ObjectHideFlags: 0
@@ -113,6 +113,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectTag: Coin
   pickupSound: {fileID: 4780435040355482098}
+  respawn: 1
+  respawnObject: {fileID: 1715087459718340405}
+  respawnTimer: 4
 --- !u!135 &2892483921003430844
 SphereCollider:
   m_ObjectHideFlags: 0
