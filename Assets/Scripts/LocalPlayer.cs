@@ -20,8 +20,9 @@ public class LocalPlayer : MonoBehaviour
     public Transform RespawnLocation = null;
     private bool soulAshCreated = false;
     public GUIStyle LabelStyle;
-
-
+    private float speedMultiplier = 1.0f;
+    public float slowFactor = 0.5f;
+    public bool playerWon = false;
 
 
 
@@ -95,7 +96,12 @@ public class LocalPlayer : MonoBehaviour
 
         if(!isAlive)
 	    {
-            GUI.Label(new Rect((Screen.width / 2) - 200, (Screen.height / 2) - 50, 400, 100), "You Died",LabelStyle);
+            GUI.Label(new Rect((Screen.width / 2) - 200, (Screen.height / 2) - 200, 400, 100), "You Died",LabelStyle);
+
+        }
+        if (playerWon)
+        {
+            GUI.Label(new Rect((Screen.width / 2) - 200, (Screen.height / 2) -200, 400, 100), "You Won", LabelStyle);
 
         }
     }
@@ -136,7 +142,34 @@ public class LocalPlayer : MonoBehaviour
             }
 
         }
+
+        if (playerWon)
+        {
+            if (Input.GetButtonDown("Fire1"))
+            {
+                Debug.Log("respawn after win");
+                playerWon = false;
+                Respawn();
+            }
+        }
     }
+    
+
+    public void Slow()
+    {
+        speedMultiplier = slowFactor;
+    }
+
+    public void StopSlow()
+    {
+        speedMultiplier = 1.0f;
+    }
+
+    public void win()
+    {
+        playerWon = true;
+    }
+
 
     void FixedUpdate()
 	{
@@ -159,7 +192,7 @@ public class LocalPlayer : MonoBehaviour
             }
 
 
-            transform.Translate(Input.GetAxis("Horizontal") * Time.deltaTime * movementSpeed, 0f, Input.GetAxis("Vertical") * Time.deltaTime * movementSpeed);
+            transform.Translate(Input.GetAxis("Horizontal") * Time.deltaTime * movementSpeed* speedMultiplier, 0f, Input.GetAxis("Vertical") * Time.deltaTime * movementSpeed* speedMultiplier);
 		    
 	    }
 
