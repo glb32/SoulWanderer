@@ -104,28 +104,49 @@ public class LocalPlayer : MonoBehaviour
      
     public void AddToInventory(string key)
 	{
-        inventory[key] += 1;
-        Debug.Log("Currently have" + inventory["Soul Ash"] + "Soul Ash, " + "and "+ inventory["Coin"] + " Coin(s)");
-
+        if (isAlive)
+        {
+            inventory[key] += 1;
+            Debug.Log("Currently have" + inventory["Soul Ash"] + "Soul Ash, " + "and " + inventory["Coin"] + " Coin(s)");
+        }
 	}
 
-    void FixedUpdate()
-	{
+    private void Update()
+    {
+        if (Input.GetKeyDown("escape"))
+        {
+            Application.Quit();
+        }
+
         if (!isAlive)
         {
-            if (Input.anyKeyDown)
+            if (Input.GetButtonDown("Fire1"))
             {
                 Debug.Log("KeyDown");
                 Respawn();
             }
         }
+        else
+        {
+            if (Input.GetButtonDown("Fire1"))
+            {
+                if (inventory["Coin"] > 0)
+                {
+                    Debug.Log("do coin stuff");
+                }
+            }
+
+        }
+    }
+
+    void FixedUpdate()
+	{
+
 
         if (!isAlive && soulAshCreated == false)
 		{
-
             soulAshCreated = true;
-            Instantiate(prefab, transform.position, Quaternion.identity);
-           
+            Instantiate(prefab, transform.position, Quaternion.identity);       
 
         }
     if(isAlive)
