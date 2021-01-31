@@ -10064,6 +10064,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 546769268479391221, guid: 349e3f90cb6d7914e821669e344c65dc,
         type: 3}
+      propertyPath: CharonPrefab
+      value: 
+      objectReference: {fileID: 7157511529395230717, guid: edafc0703030c6b428ddb46562edac1c,
+        type: 3}
+    - target: {fileID: 546769268479391221, guid: 349e3f90cb6d7914e821669e344c65dc,
+        type: 3}
       propertyPath: LabelStyle.m_Normal.m_TextColor.b
       value: 0.8490566
       objectReference: {fileID: 0}

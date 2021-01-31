@@ -23,7 +23,7 @@ public class LocalPlayer : MonoBehaviour
     private float speedMultiplier = 1.0f;
     public float slowFactor = 0.5f;
     public bool playerWon = false;
-
+    public Transform CharonPrefab;
 
 
     private void Awake()
@@ -79,6 +79,7 @@ public class LocalPlayer : MonoBehaviour
         if (isAlive && !soulAshCreated)
         {
             Debug.Log("Killed Player");
+            Instantiate(CharonPrefab, transform.position, Quaternion.identity);
             isAlive = false;
         }
     
