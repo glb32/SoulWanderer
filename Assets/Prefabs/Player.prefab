@@ -151,7 +151,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
-  TimerTime: 3.5
+  TimerTime: 5
   prefab: {fileID: 5853004506098723985, guid: 9545f14b02bac354db8ea6b306fda9eb, type: 3}
   movementSpeed: 3
   RespawnLocation: {fileID: 0}
