@@ -46,4 +46,14 @@ public class TentacleMovement : MonoBehaviour
         target = null;
         Debug.Log("stop tentacle");
     }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            LocalPlayer tempPlayer = collision.gameObject.GetComponent("LocalPlayer") as LocalPlayer;
+            tempPlayer.KillPlayer();
+        }
+       
+    }
 }

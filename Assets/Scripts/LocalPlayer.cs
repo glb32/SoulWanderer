@@ -76,7 +76,7 @@ public class LocalPlayer : MonoBehaviour
         }
     }
 
-    void KillPlayer()
+    public void KillPlayer()
     {
         if (isAlive && !soulAshCreated)
         {
