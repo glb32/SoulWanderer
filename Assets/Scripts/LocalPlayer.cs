@@ -102,7 +102,7 @@ public class LocalPlayer : MonoBehaviour
     }
 
      
-    void AddToInventory(string key)
+    public void AddToInventory(string key)
 	{
         inventory[key] += 1;
         Debug.Log("Currently have" + inventory["Soul Ash"] + "Soul Ash, " + inventory["Coin"] + "and {1} Coin(s)");
